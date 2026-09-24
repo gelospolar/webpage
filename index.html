@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gelos Polar | Gelo para Eventos, Bares e Restaurantes em Campo Grande/MS</title>
+<meta name="description" content="Gelos Polar: gelo em cubo, moído, barras de gelo e gelo seco em Campo Grande/MS. Entrega para bares, restaurantes, eventos e casamentos. Peça pelo WhatsApp!">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Gelos Polar | Gelo de Qualidade em Campo Grande/MS">
+<meta property="og:description" content="Gelo em cubo, moído, barras esculpidas e gelo seco. Entregamos para eventos, bares, restaurantes e residências em Campo Grande/MS. Fale conosco no WhatsApp.">
+<meta property="og:image" content="https://placehold.co/1200x630/0b3d5c/ffffff?text=Gelos+Polar">
+<meta property="og:locale" content="pt_BR">
+
+<style>
+  :root{
+    --azul-gelo:#eaf6fb;
+    --azul-claro:#bfe4f0;
+    --azul-medio:#3aa7d1;
+    --azul-escuro:#0b3d5c;
+    --navy:#082238;
+    --branco:#ffffff;
+    --accent:#ff7a00;
+    --accent-dark:#e06600;
+    --text-dark:#0b2233;
+    --text-muted:#4a6272;
+    --radius:16px;
+    --shadow:0 10px 30px rgba(11,61,92,0.15);
+    font-size:16px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    color:var(--text-dark);
+    background:linear-gradient(180deg,var(--azul-gelo) 0%, var(--branco) 400px);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  img{max-width:100%;display:block;}
+  a{color:inherit;text-decoration:none;}
+  .container{max-width:1100px;margin:0 auto;padding:0 20px;}
+  section{padding:64px 0;}
+  h1,h2,h3{line-height:1.2;font-weight:800;color:var(--navy);}
+  h2{font-size:clamp(1.6rem,4vw,2.2rem);text-align:center;margin-bottom:12px;}
+  .section-sub{text-align:center;color:var(--text-muted);max-width:600px;margin:0 auto 40px;font-size:1.05rem;}
+
+  /* Buttons */
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:10px;
+    font-weight:700;border-radius:50px;padding:16px 28px;font-size:1.05rem;
+    cursor:pointer;border:none;transition:transform .15s ease, box-shadow .15s ease;
+    text-align:center;
+  }
+  .btn:active{transform:scale(0.97);}
+  .btn-primary{
+    background:var(--accent);color:#fff;
+    box-shadow:0 8px 20px rgba(255,122,0,0.35);
+  }
+  .btn-primary:hover{background:var(--accent-dark);}
+  .btn-outline{
+    background:rgba(255,255,255,0.9);color:var(--azul-escuro);
+    border:2px solid var(--azul-medio);
+  }
+  .btn-outline:hover{background:var(--azul-claro);}
+  .btn-block{width:100%;}
+
+  /* Header / Nav */
+  header{
+    position:sticky;top:0;z-index:50;
+    background:rgba(255,255,255,0.85);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid rgba(11,61,92,0.08);
+  }
+  .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 20px;max-width:1100px;margin:0 auto;}
+  .logo{display:flex;align-items:center;gap:8px;font-weight:800;font-size:1.2rem;color:var(--azul-escuro);}
+  .logo span{color:var(--accent);}
+  .nav-cta{display:none;}
+  @media(min-width:720px){.nav-cta{display:inline-flex;}}
+
+  /* Hero */
+  .hero{
+    padding:60px 0 50px;
+    background:radial-gradient(circle at top right, var(--azul-claro) 0%, var(--azul-gelo) 55%, #fff 100%);
+    text-align:center;
+    position:relative;
+    overflow:hidden;
+  }
+  .hero::before{
+    content:"";position:absolute;inset:0;
+    background:
+      radial-gradient(circle at 15% 20%, rgba(255,255,255,0.6) 0, transparent 40%),
+      radial-gradient(circle at 85% 80%, rgba(255,255,255,0.5) 0, transparent 45%);
+    pointer-events:none;
+  }
+  .hero-content{position:relative;max-width:720px;margin:0 auto;}
+  .badge{
+    display:inline-block;background:rgba(255,255,255,0.7);border:1px solid var(--azul-medio);
+    color:var(--azul-escuro);padding:6px 16px;border-radius:50px;font-size:0.85rem;font-weight:600;
+    margin-bottom:18px;
+  }
+  .hero h1{font-size:clamp(2rem,6vw,3rem);margin-bottom:16px;}
+  .hero h1 .accent{color:var(--azul-medio);}
+  .hero p.subhead{font-size:1.15rem;color:var(--text-muted);margin-bottom:30px;}
+  .hero-buttons{display:flex;flex-direction:column;gap:14px;align-items:center;}
+  .hero-note{margin-top:18px;font-size:0.9rem;color:var(--text-muted);}
+
+  /* Frosted card */
+  .frost{
+    background:rgba(255,255,255,0.65);
+    backdrop-filter:blur(8px);
+    border:1px solid rgba(255,255,255,0.6);
+    border-radius:var(--radius);
+    box-shadow:var(--shadow);
+  }
+
+  /* Products */
+  .products-grid{display:grid;grid-template-columns:1fr;gap:22px;}
+  @media(min-width:640px){.products-grid{grid-template-columns:repeat(2,1fr);}}
+  @media(min-width:980px){.products-grid{grid-template-columns:repeat(3,1fr);}}
+  .product-card{
+    padding:24px;display:flex;flex-direction:column;gap:14px;
+  }
+  .product-card img{border-radius:12px;height:170px;width:100%;object-fit:cover;background:var(--azul-claro);}
+  .product-card h3{font-size:1.2rem;color:var(--azul-escuro);}
+  .product-card p{color:var(--text-muted);font-size:0.95rem;flex-grow:1;}
+  .product-card .btn{font-size:0.95rem;padding:12px 18px;}
+
+  /* Gallery */
+  .gallery-grid{
+    display:grid;grid-template-columns:repeat(2,1fr);gap:12px;
+  }
+  @media(min-width:640px){.gallery-grid{grid-template-columns:repeat(3,1fr);}}
+  @media(min-width:980px){.gallery-grid{grid-template-columns:repeat(4,1fr);}}
+  .gallery-item{
+    position:relative;border-radius:12px;overflow:hidden;cursor:pointer;
+    box-shadow:0 4px 14px rgba(11,61,92,0.12);
+  }
+  .gallery-item img{width:100%;height:150px;object-fit:cover;transition:transform .3s ease;}
+  .gallery-item:hover img{transform:scale(1.06);}
+  .gallery-caption{
+    position:absolute;bottom:0;left:0;right:0;
+    background:linear-gradient(180deg,transparent,rgba(8,34,56,0.85));
+    color:#fff;font-size:0.78rem;padding:20px 10px 8px;
+  }
+
+  /* Lightbox */
+  .lightbox{
+    display:none;position:fixed;inset:0;background:rgba(6,20,32,0.92);
+    z-index:200;align-items:center;justify-content:center;padding:24px;
+  }
+  .lightbox.open{display:flex;}
+  .lightbox img{max-width:100%;max-height:75vh;border-radius:10px;}
+  .lightbox-caption{color:#fff;text-align:center;margin-top:14px;font-size:0.95rem;}
+  .lightbox-close, .lightbox-nav{
+    position:absolute;background:rgba(255,255,255,0.15);color:#fff;border:none;
+    width:44px;height:44px;border-radius:50%;font-size:1.4rem;cursor:pointer;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .lightbox-close{top:20px;right:20px;}
+  .lightbox-prev{left:20px;top:50%;transform:translateY(-50%);}
+  .lightbox-next{right:20px;top:50%;transform:translateY(-50%);}
+
+  /* Why choose us */
+  .benefits-grid{display:grid;grid-template-columns:1fr;gap:20px;}
+  @media(min-width:640px){.benefits-grid{grid-template-columns:repeat(2,1fr);}}
+  @media(min-width:980px){.benefits-grid{grid-template-columns:repeat(4,1fr);}}
+  .benefit-card{padding:26px 20px;text-align:center;}
+  .benefit-icon{
+    width:60px;height:60px;border-radius:50%;
+    background:var(--azul-claro);color:var(--azul-escuro);
+    display:flex;align-items:center;justify-content:center;
+    font-size:1.6rem;margin:0 auto 14px;
+  }
+  .benefit-card h3{font-size:1.05rem;margin-bottom:6px;color:var(--azul-escuro);}
+  .benefit-card p{font-size:0.9rem;color:var(--text-muted);}
+
+  /* How it works */
+  .steps{display:grid;grid-template-columns:1fr;gap:24px;counter-reset:step;}
+  @media(min-width:768px){.steps{grid-template-columns:repeat(3,1fr);}}
+  .step{padding:28px 22px;text-align:center;position:relative;}
+  .step-number{
+    width:44px;height:44px;border-radius:50%;background:var(--azul-escuro);color:#fff;
+    display:flex;align-items:center;justify-content:center;font-weight:800;
+    margin:0 auto 16px;font-size:1.1rem;
+  }
+  .step h3{font-size:1.1rem;margin-bottom:8px;color:var(--azul-escuro);}
+  .step p{color:var(--text-muted);font-size:0.92rem;}
+
+  /* Testimonials */
+  .testimonials-grid{display:grid;grid-template-columns:1fr;gap:20px;}
+  @media(min-width:768px){.testimonials-grid{grid-template-columns:repeat(3,1fr);}}
+  .testimonial{padding:26px;}
+  .stars{color:#ffb020;margin-bottom:10px;font-size:1rem;}
+  .testimonial p.quote{font-style:italic;color:var(--text-dark);margin-bottom:14px;}
+  .testimonial .author{font-weight:700;color:var(--azul-escuro);font-size:0.9rem;}
+  .testimonial .role{color:var(--text-muted);font-size:0.8rem;}
+
+  /* Final CTA */
+  .final-cta{
+    background:linear-gradient(135deg,var(--azul-escuro),var(--navy));
+    color:#fff;text-align:center;border-radius:24px;padding:50px 24px;
+    margin:0 20px;
+  }
+  .final-cta h2{color:#fff;}
+  .final-cta p{color:rgba(255,255,255,0.8);}
+  .final-cta .btn-primary{margin-top:20px;}
+  .contact-info{
+    display:flex;flex-wrap:wrap;justify-content:center;gap:28px;margin-top:36px;
+    color:rgba(255,255,255,0.9);font-size:0.95rem;
+  }
+  .contact-info div{display:flex;align-items:center;gap:8px;}
+  .social-links{display:flex;justify-content:center;gap:16px;margin-top:24px;}
+  .social-links a{
+    width:42px;height:42px;border-radius:50%;background:rgba(255,255,255,0.12);
+    display:flex;align-items:center;justify-content:center;font-size:1.2rem;
+    transition:background .2s;
+  }
+  .social-links a:hover{background:rgba(255,255,255,0.25);}
+
+  footer{text-align:center;padding:26px 20px;color:var(--text-muted);font-size:0.8rem;}
+
+  /* Floating WhatsApp button */
+  .fab-whatsapp{
+    position:fixed;bottom:22px;right:22px;z-index:100;
+    width:62px;height:62px;border-radius:50%;
+    background:#25D366;color:#fff;
+    display:flex;align-items:center;justify-content:center;
+    box-shadow:0 8px 22px rgba(37,211,102,0.5);
+    font-size:1.8rem;
+    animation:pulse 2.4s infinite;
+  }
+  @keyframes pulse{
+    0%{box-shadow:0 0 0 0 rgba(37,211,102,0.55);}
+    70%{box-shadow:0 0 0 16px rgba(37,211,102,0);}
+    100%{box-shadow:0 0 0 0 rgba(37,211,102,0);}
+  }
+
+  .section-alt{background:rgba(191,228,240,0.25);}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <div class="logo">❄️ Gelos <span>Polar</span></div>
+    <a class="btn btn-primary nav-cta" id="nav-whats" href="#" target="_blank" rel="noopener">Falar no WhatsApp</a>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container hero-content">
+    <span class="badge">📍 Campo Grande/MS · Seg a Sex, 8h às 17h</span>
+    <h1>Gelo de qualidade, entregue <span class="accent">na hora certa</span></h1>
+    <p class="subhead">Cubos, gelo moído, barras esculpidas e gelo seco para bares, restaurantes, eventos e sua casa. Peça agora e receba rapidinho.</p>
+    <div class="hero-buttons">
+      <a class="btn btn-primary btn-block js-whats" href="#" data-msg="Olá! Gostaria de um orçamento de gelo. [Produto/quantidade/data/endereço]" target="_blank" rel="noopener">
+        💬 Falar no WhatsApp agora
+      </a>
+      <a class="btn btn-outline btn-block" href="#produtos">Ver produtos</a>
+    </div>
+    <p class="hero-note">Disponibilidade especial para entrega em eventos, casamentos e festas.</p>
+  </div>
+</section>
+
+<!-- PRODUCTS -->
+<section id="produtos">
+  <div class="container">
+    <h2>Nossos Produtos</h2>
+    <p class="section-sub">Do gelo do dia a dia ao gelo esculpido para grandes eventos. Escolha o seu e peça um orçamento direto no WhatsApp.</p>
+    <div class="products-grid">
+
+      <div class="product-card frost">
+        <img loading="lazy" src="https://placehold.co/400x260/bfe4f0/0b3d5c?text=Gelo+em+Cubo" alt="Sacos de gelo em cubo empilhados">
+        <h3>Gelo em Cubo</h3>
+        <p>Ideal para bares, restaurantes, distribuidoras e uso doméstico. Embalagens de vários tamanhos.</p>
+        <a class="btn btn-primary js-whats" href="#" data-msg="Olá! Gostaria de um orçamento de Gelo em Cubo. [quantidade/data/endereço]" target="_blank" rel="noopener">Pedir orçamento</a>
+      </div>
+
+      <div class="product-card frost">
+        <img loading="lazy" src="https://placehold.co/400x260/bfe4f0/0b3d5c?text=Gelo+Moído" alt="Gelo moído em recipiente">
+        <h3>Gelo Moído</h3>
+        <p>Perfeito para drinks, sorveterias, peixarias e conservação de bebidas geladas em eventos.</p>
+        <a class="btn btn-primary js-whats" href="#" data-msg="Olá! Gostaria de um orçamento de Gelo Moído. [quantidade/data/endereço]" target="_blank" rel="noopener">Pedir orçamento</a>
+      </div>
+
+      <div class="product-card frost">
+        <img loading="lazy" src="https://placehold.co/400x260/bfe4f0/0b3d5c?text=Barras+de+Gelo" alt="Barras de gelo transparente">
+        <h3>Barras de Gelo</h3>
+        <p>Barras cristalinas para open bar, buffets e decoração de mesas em festas e casamentos.</p>
+        <a class="btn btn-primary js-whats" href="#" data-msg="Olá! Gostaria de um orçamento de Barras de Gelo. [quantidade/data/endereço]" target="_blank" rel="noopener">Pedir orçamento</a>
+      </div>
+
+      <div class="product-card frost">
+        <img loading="lazy" src="https://placehold.co/400x260/bfe4f0/0b3d5c?text=Gelo+Seco" alt="Gelo seco com efeito de fumaça">
+        <h3>Gelo Seco</h3>
+        <p>Efeito de fumaça para festas, shows e eventos especiais. Manuseio e entrega com segurança.</p>
+        <a class="btn btn-primary js-whats" href="#" data-msg="Olá! Gostaria de um orçamento de Gelo Seco. [quantidade/data/endereço]" target="_blank" rel="noopener">Pedir orçamento</a>
+      </div>
+
+      <div class="product-card frost">
+        <img loading="lazy" src="https://placehold.co/400x260/bfe4f0/0b3d5c?text=Gelo+Esculpido" alt="Escultura de gelo decorativa">
+        <h3>Gelo Esculpido</h3>
+        <p>Esculturas personalizadas para casamentos e eventos corporativos. Peça com antecedência.</p>
+        <a class="btn btn-primary js-whats" href="#" data-msg="Olá! Gostaria de um orçamento de Gelo Esculpido. [quantidade/data/endereço]" target="_blank" rel="noopener">Pedir orçamento</a>
+      </div>
+
+      <div class="product-card frost">
+        <img loading="lazy" src="https://placehold.co/400x260/bfe4f0/0b3d5c?text=Gelo+para+Eventos" alt="Entrega de gelo para eventos">
+        <h3>Gelo para Eventos</h3>
+        <p>Pacotes sob medida com entrega programada para casamentos, formaturas e festas particulares.</p>
+        <a class="btn btn-primary js-whats" href="#" data-msg="Olá! Gostaria de um orçamento de Gelo para Eventos. [data/endereço/nº de convidados]" target="_blank" rel="noopener">Pedir orçamento</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="section-alt" id="portfolio">
+  <div class="container">
+    <h2>Nosso Trabalho</h2>
+    <p class="section-sub">Confira entregas, eventos e peças de gelo personalizadas que já produzimos. Substitua pelas suas próprias fotos.</p>
+    <div class="gallery-grid" id="gallery">
+      <div class="gallery-item" data-caption="Entrega para casamento ao ar livre">
+        <img loading="lazy" src="https://placehold.co/400x300/3aa7d1/ffffff?text=Casamento" alt="Gelo entregue em casamento ao ar livre">
+        <div class="gallery-caption">Casamento ao ar livre</div>
+      </div>
+      <div class="gallery-item" data-caption="Barra de gelo em open bar">
+        <img loading="lazy" src="https://placehold.co/400x300/0b3d5c/ffffff?text=Open+Bar" alt="Barra de gelo em open bar de festa">
+        <div class="gallery-caption">Open bar personalizado</div>
+      </div>
+      <div class="gallery-item" data-caption="Escultura de gelo para evento corporativo">
+        <img loading="lazy" src="https://placehold.co/400x300/082238/ffffff?text=Escultura" alt="Escultura de gelo esculpida para evento corporativo">
+        <div class="gallery-caption">Escultura corporativa</div>
+      </div>
+      <div class="gallery-item" data-caption="Entrega de gelo em cubo para restaurante parceiro">
+        <img loading="lazy" src="https://placehold.co/400x300/bfe4f0/0b3d5c?text=Restaurante" alt="Entrega de gelo em cubo para restaurante">
+        <div class="gallery-caption">Entrega para restaurante</div>
+      </div>
+      <div class="gallery-item" data-caption="Efeito de fumaça com gelo seco em festa">
+        <img loading="lazy" src="https://placehold.co/400x300/3aa7d1/ffffff?text=Gelo+Seco" alt="Efeito de fumaça com gelo seco em festa">
+        <div class="gallery-caption">Efeito gelo seco</div>
+      </div>
+      <div class="gallery-item" data-caption="Caminhão de entrega Gelos Polar">
+        <img loading="lazy" src="https://placehold.co/400x300/0b3d5c/ffffff?text=Entrega" alt="Veículo de entrega da Gelos Polar em Campo Grande">
+        <div class="gallery-caption">Nossa frota de entrega</div>
+      </div>
+      <div class="gallery-item" data-caption="Gelo moído para peixaria parceira">
+        <img loading="lazy" src="https://placehold.co/400x300/082238/ffffff?text=Peixaria" alt="Gelo moído entregue em peixaria">
+        <div class="gallery-caption">Parceria com peixaria</div>
+      </div>
+      <div class="gallery-item" data-caption="Decoração de mesa com barras de gelo">
+        <img loading="lazy" src="https://placehold.co/400x300/bfe4f0/0b3d5c?text=Decoração" alt="Decoração de mesa de evento com barras de gelo">
+        <div class="gallery-caption">Decoração de mesa</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close" id="lightbox-close" aria-label="Fechar">✕</button>
+  <button class="lightbox-nav lightbox-prev" id="lightbox-prev" aria-label="Anterior">‹</button>
+  <div>
+    <img id="lightbox-img" src="" alt="">
+    <p class="lightbox-caption" id="lightbox-caption"></p>
+  </div>
+  <button class="lightbox-nav lightbox-next" id="lightbox-next" aria-label="Próxima">›</button>
+</div>
+
+<!-- WHY CHOOSE US -->
+<section id="porque">
+  <div class="container">
+    <h2>Por Que Escolher a Gelos Polar</h2>
+    <p class="section-sub">Compromisso com qualidade, agilidade e atendimento próximo em cada entrega.</p>
+    <div class="benefits-grid">
+      <div class="benefit-card frost">
+        <div class="benefit-icon">🚚</div>
+        <h3>Entrega para eventos</h3>
+        <p>Disponibilidade especial para eventos, casamentos e festas, inclusive fora do horário comercial mediante agendamento.</p>
+      </div>
+      <div class="benefit-card frost">
+        <div class="benefit-icon">❄️</div>
+        <h3>Gelo de alta qualidade</h3>
+        <p>Produção higienizada e cristalina, ideal para consumo e apresentação em bares e restaurantes.</p>
+      </div>
+      <div class="benefit-card frost">
+        <div class="benefit-icon">⏱️</div>
+        <h3>Agilidade na entrega</h3>
+        <p>Atendimento rápido em Campo Grande/MS, de segunda a sexta, das 8h às 17h.</p>
+      </div>
+      <div class="benefit-card frost">
+        <div class="benefit-icon">🤝</div>
+        <h3>Atendimento direto</h3>
+        <p>Fale direto com a gente pelo WhatsApp e receba seu orçamento sem burocracia.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="section-alt">
+  <div class="container">
+    <h2>Como Funciona</h2>
+    <p class="section-sub">Simples, rápido e sem complicação.</p>
+    <div class="steps">
+      <div class="step frost">
+        <div class="step-number">1</div>
+        <h3>Chame no WhatsApp</h3>
+        <p>Envie sua mensagem contando o produto, quantidade, data e endereço.</p>
+      </div>
+      <div class="step frost">
+        <div class="step-number">2</div>
+        <h3>Confirme pedido e entrega</h3>
+        <p>A gente confirma valores, forma de pagamento e horário de entrega com você.</p>
+      </div>
+      <div class="step frost">
+        <div class="step-number">3</div>
+        <h3>Receba seu gelo</h3>
+        <p>Entregamos no local combinado, prontinho para usar.</p>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:36px;">
+      <a class="btn btn-primary js-whats" href="#" data-msg="Olá! Gostaria de um orçamento de gelo. [Produto/quantidade/data/endereço]" target="_blank" rel="noopener">💬 Iniciar meu pedido</a>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section>
+  <div class="container">
+    <h2>O Que Nossos Clientes Dizem</h2>
+    <p class="section-sub">Depoimentos de exemplo — substitua pelos comentários reais dos seus clientes.</p>
+    <div class="testimonials-grid">
+      <div class="testimonial frost">
+        <div class="stars">★★★★★</div>
+        <p class="quote">"Pedimos gelo para o casamento de última hora e a Gelos Polar salvou nossa festa. Entrega rápida e gelo de ótima qualidade!"</p>
+        <div class="author">Fernanda A.</div>
+        <div class="role">Casamento particular</div>
+      </div>
+      <div class="testimonial frost">
+        <div class="stars">★★★★★</div>
+        <p class="quote">"Somos parceiros há mais de um ano. Nunca faltou gelo no bar e o atendimento pelo WhatsApp é sempre muito ágil."</p>
+        <div class="author">Ricardo M.</div>
+        <div class="role">Proprietário de bar</div>
+      </div>
+      <div class="testimonial frost">
+        <div class="stars">★★★★★</div>
+        <p class="quote">"O gelo esculpido surpreendeu todos os convidados do evento corporativo. Recomendo demais!"</p>
+        <div class="author">Juliana C.</div>
+        <div class="role">Organizadora de eventos</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section>
+  <div class="container">
+    <div class="final-cta">
+      <h2>Pronto para pedir seu gelo?</h2>
+      <p>Fale agora com a Gelos Polar e receba seu orçamento em minutos.</p>
+      <a class="btn btn-primary js-whats" href="#" data-msg="Olá! Gostaria de um orçamento de gelo. [Produto/quantidade/data/endereço]" target="_blank" rel="noopener">💬 Falar no WhatsApp</a>
+
+      <div class="contact-info">
+        <div>📍 Campo Grande/MS - Brasil</div>
+        <div>🕒 Seg a Sex, 8h às 17h</div>
+        <div>📞 (67) 99999-9999</div>
+      </div>
+
+      <div class="social-links">
+        <a href="#" target="_blank" rel="noopener" aria-label="Instagram">📷</a>
+        <a href="#" target="_blank" rel="noopener" aria-label="Facebook">📘</a>
+        <a href="#" target="_blank" rel="noopener" aria-label="WhatsApp" class="js-whats" data-msg="Olá! Gostaria de um orçamento de gelo. [Produto/quantidade/data/endereço]">💬</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  &copy; <span id="year"></span> Gelos Polar - Campo Grande/MS. Todos os direitos reservados.
+</footer>
+
+<!-- Floating WhatsApp button -->
+<a class="fab-whatsapp js-whats" href="#" data-msg="Olá! Gostaria de um orçamento de gelo. [Produto/quantidade/data/endereço]" target="_blank" rel="noopener" aria-label="Falar no WhatsApp">
+  💬
+</a>
+
+<script>
+(function(){
+  var WHATS_NUMBER = "5567999999999";
+
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  function buildLink(msg){
+    return "https://wa.me/" + WHATS_NUMBER + "?text=" + encodeURIComponent(msg);
+  }
+
+  document.querySelectorAll('.js-whats').forEach(function(el){
+    var msg = el.getAttribute('data-msg') || "Olá! Gostaria de um orçamento de gelo. [Produto/quantidade/data/endereço]";
+    el.setAttribute('href', buildLink(msg));
+  });
+
+  var navWhats = document.getElementById('nav-whats');
+  if(navWhats){ navWhats.setAttribute('href', buildLink("Olá! Gostaria de um orçamento de gelo. [Produto/quantidade/data/endereço]")); }
+
+  var items = Array.prototype.slice.call(document.querySelectorAll('.gallery-item'));
+  var lightbox = document.getElementById('lightbox');
+  var lbImg = document.getElementById('lightbox-img');
+  var lbCaption = document.getElementById('lightbox-caption');
+  var currentIndex = 0;
+
+  function openLightbox(i){
+    currentIndex = i;
+    var item = items[i];
+    var img = item.querySelector('img');
+    lbImg.src = img.src;
+    lbImg.alt = img.alt;
+    lbCaption.textContent = item.getAttribute('data-caption') || '';
+    lightbox.classList.add('open');
+  }
+  function closeLightbox(){ lightbox.classList.remove('open'); }
+  function showNext(dir){
+    currentIndex = (currentIndex + dir + items.length) % items.length;
+    openLightbox(currentIndex);
+  }
+
+  items.forEach(function(item, i){
+    item.addEventListener('click', function(){ openLightbox(i); });
+  });
+  document.getElementById('lightbox-close').addEventListener('click', closeLightbox);
+  document.getElementById('lightbox-prev').addEventListener('click', function(){ showNext(-1); });
+  document.getElementById('lightbox-next').addEventListener('click', function(){ showNext(1); });
+  lightbox.addEventListener('click', function(e){ if(e.target === lightbox){ closeLightbox(); } });
+  document.addEventListener('keydown', function(e){
+    if(!lightbox.classList.contains('open')) return;
+    if(e.key === 'Escape') closeLightbox();
+    if(e.key === 'ArrowRight') showNext(1);
+    if(e.key === 'ArrowLeft') showNext(-1);
+  });
+})();
+</script>
+
+</body>
+</html>
