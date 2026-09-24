@@ -21,8 +21,8 @@
     --azul-escuro:#0b3d5c;
     --navy:#082238;
     --branco:#ffffff;
-    --accent:#ff7a00;
-    --accent-dark:#e06600;
+    --accent:#0b3d5c;
+    --accent-dark:#082238;
     --text-dark:#0b2233;
     --text-muted:#4a6272;
     --radius:16px;
@@ -56,7 +56,7 @@
   .btn:active{transform:scale(0.97);}
   .btn-primary{
     background:var(--accent);color:#fff;
-    box-shadow:0 8px 20px rgba(255,122,0,0.35);
+    box-shadow:0 8px 20px rgba(11,61,92,0.35);
   }
   .btn-primary:hover{background:var(--accent-dark);}
   .btn-outline{
@@ -73,11 +73,37 @@
     backdrop-filter:blur(10px);
     border-bottom:1px solid rgba(11,61,92,0.08);
   }
-  .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 20px;max-width:1100px;margin:0 auto;}
+  .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 20px;max-width:1100px;margin:0 auto;position:relative;gap:16px;}
   .logo{display:flex;align-items:center;gap:8px;font-weight:800;font-size:1.2rem;color:var(--azul-escuro);}
-  .logo span{color:var(--accent);}
+  .logo span{color:var(--azul-medio);}
   .nav-cta{display:none;}
-  @media(min-width:720px){.nav-cta{display:inline-flex;}}
+  @media(min-width:900px){.nav-cta{display:inline-flex;}}
+
+  /* Nav menu (auto-generated from sections) */
+  .nav-menu{
+    list-style:none;display:none;gap:22px;margin:0;padding:0;
+  }
+  .nav-menu a{
+    font-weight:600;font-size:0.92rem;color:var(--azul-escuro);
+    padding:6px 2px;white-space:nowrap;
+  }
+  .nav-menu a:hover{color:var(--accent);}
+  @media(min-width:900px){.nav-menu{display:flex;flex:1;justify-content:center;}}
+
+  .nav-toggle{
+    display:flex;align-items:center;justify-content:center;
+    width:40px;height:40px;border-radius:8px;border:1px solid var(--azul-claro);
+    background:#fff;font-size:1.2rem;cursor:pointer;color:var(--azul-escuro);
+  }
+  @media(min-width:900px){.nav-toggle{display:none;}}
+
+  .nav-menu.open{
+    display:flex;flex-direction:column;position:absolute;top:100%;left:0;right:0;
+    background:#fff;padding:14px 20px 18px;gap:4px;
+    box-shadow:0 12px 24px rgba(11,61,92,0.15);
+    border-bottom:1px solid var(--azul-claro);
+  }
+  .nav-menu.open a{padding:10px 4px;border-bottom:1px solid rgba(11,61,92,0.06);}
 
   /* Hero */
   .hero{
@@ -245,6 +271,8 @@
 <header>
   <div class="nav">
     <div class="logo">❄️ Gelos <span>Polar</span></div>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Abrir menu" aria-expanded="false">☰</button>
+    <ul class="nav-menu" id="nav-menu"></ul>
     <a class="btn btn-primary nav-cta" id="nav-whats" href="#" target="_blank" rel="noopener">Falar no WhatsApp</a>
   </div>
 </header>
@@ -266,7 +294,7 @@
 </section>
 
 <!-- PRODUCTS -->
-<section id="produtos">
+<section class="page-section" id="produtos" data-nav-label="Produtos">
   <div class="container">
     <h2>Nossos Produtos</h2>
     <p class="section-sub">Do gelo do dia a dia ao gelo esculpido para grandes eventos. Escolha o seu e peça um orçamento direto no WhatsApp.</p>
@@ -319,7 +347,7 @@
 </section>
 
 <!-- GALLERY -->
-<section class="section-alt" id="portfolio">
+<section class="page-section section-alt" id="portfolio" data-nav-label="Portfólio">
   <div class="container">
     <h2>Nosso Trabalho</h2>
     <p class="section-sub">Confira entregas, eventos e peças de gelo personalizadas que já produzimos. Substitua pelas suas próprias fotos.</p>
@@ -371,7 +399,7 @@
 </div>
 
 <!-- WHY CHOOSE US -->
-<section id="porque">
+<section class="page-section" id="porque" data-nav-label="Diferenciais">
   <div class="container">
     <h2>Por Que Escolher a Gelos Polar</h2>
     <p class="section-sub">Compromisso com qualidade, agilidade e atendimento próximo em cada entrega.</p>
@@ -401,7 +429,7 @@
 </section>
 
 <!-- HOW IT WORKS -->
-<section class="section-alt">
+<section class="page-section section-alt" id="como-funciona" data-nav-label="Como Funciona">
   <div class="container">
     <h2>Como Funciona</h2>
     <p class="section-sub">Simples, rápido e sem complicação.</p>
@@ -429,7 +457,7 @@
 </section>
 
 <!-- TESTIMONIALS -->
-<section>
+<section class="page-section" id="depoimentos" data-nav-label="Depoimentos">
   <div class="container">
     <h2>O Que Nossos Clientes Dizem</h2>
     <p class="section-sub">Depoimentos de exemplo — substitua pelos comentários reais dos seus clientes.</p>
@@ -457,7 +485,7 @@
 </section>
 
 <!-- FINAL CTA -->
-<section>
+<section class="page-section" id="contato" data-nav-label="Contato">
   <div class="container">
     <div class="final-cta">
       <h2>Pronto para pedir seu gelo?</h2>
@@ -483,6 +511,32 @@
   &copy; <span id="year"></span> Gelos Polar - Campo Grande/MS. Todos os direitos reservados.
 </footer>
 
+<!--
+  ============================================================
+  SECTION MODEL — copy this block to add a new custom section.
+  Paste it anywhere between </header> and <footer>.
+
+  - class="page-section"        -> required, gives standard spacing
+  - class="section-alt"         -> optional, adds light-blue background stripe (alternate sections for visual rhythm)
+  - id="my-section"              -> required, unique, used for the nav link and scroll anchor
+  - data-nav-label="Meu Título"  -> required, text shown in the nav bar; the menu is built
+                                     automatically from every section that has this attribute,
+                                     in the order they appear in the page. Remove the attribute
+                                     if a section should NOT appear in the nav.
+
+  <section class="page-section [section-alt]" id="my-section" data-nav-label="Meu Título">
+    <div class="container">
+      <h2>Meu Título</h2>
+      <p class="section-sub">Subtítulo curto explicando a seção.</p>
+
+      <!-- your content: reuse .frost for frosted-glass cards, .btn.btn-primary.js-whats
+           with a data-msg="..." attribute for a WhatsApp CTA button -->
+
+    </div>
+  </section>
+  ============================================================
+-->
+
 <!-- Floating WhatsApp button -->
 <a class="fab-whatsapp js-whats" href="#" data-msg="Olá! Gostaria de um orçamento de gelo. [Produto/quantidade/data/endereço]" target="_blank" rel="noopener" aria-label="Falar no WhatsApp">
   💬
@@ -493,6 +547,26 @@
   var WHATS_NUMBER = "5567999999999";
 
   document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Build nav menu automatically from every <section data-nav-label="...">
+  var navMenu = document.getElementById('nav-menu');
+  var navToggle = document.getElementById('nav-toggle');
+  document.querySelectorAll('section[data-nav-label]').forEach(function(sec){
+    var li = document.createElement('li');
+    var a = document.createElement('a');
+    a.href = '#' + sec.id;
+    a.textContent = sec.getAttribute('data-nav-label');
+    a.addEventListener('click', function(){
+      navMenu.classList.remove('open');
+      navToggle.setAttribute('aria-expanded', 'false');
+    });
+    li.appendChild(a);
+    navMenu.appendChild(li);
+  });
+  navToggle.addEventListener('click', function(){
+    var isOpen = navMenu.classList.toggle('open');
+    navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+  });
 
   function buildLink(msg){
     return "https://wa.me/" + WHATS_NUMBER + "?text=" + encodeURIComponent(msg);
