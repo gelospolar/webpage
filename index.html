@@ -126,6 +126,8 @@
     color:var(--azul-escuro);padding:6px 16px;border-radius:50px;font-size:0.85rem;font-weight:600;
     margin-bottom:18px;
   }
+  a.badge{cursor:pointer;transition:background .2s;}
+  a.badge:hover{background:#fff;}
   .hero h1{font-size:clamp(2rem,6vw,3rem);margin-bottom:16px;color:#fff;}
   .hero h1 .accent{color:var(--azul-claro);}
   .hero p.subhead{font-size:1.15rem;color:rgba(255,255,255,0.92);margin-bottom:30px;}
@@ -153,22 +155,49 @@
   .product-card p{color:var(--text-muted);font-size:0.95rem;flex-grow:1;}
   .product-card .btn{font-size:0.95rem;padding:12px 18px;}
 
-  /* Gallery */
+  /* Gallery - single row, hover to expand */
   .gallery-grid{
-    display:grid;grid-template-columns:repeat(2,1fr);gap:12px;
+    display:flex;gap:8px;
+    overflow-x:auto;
+    padding-bottom:4px;
+    -webkit-overflow-scrolling:touch;
+    scrollbar-width:thin;
   }
-  @media(min-width:640px){.gallery-grid{grid-template-columns:repeat(3,1fr);}}
-  @media(min-width:980px){.gallery-grid{grid-template-columns:repeat(4,1fr);}}
   .gallery-item{
     position:relative;border-radius:12px;overflow:hidden;cursor:pointer;
     box-shadow:0 4px 14px rgba(11,61,92,0.12);
+    flex:1 1 0;
+    min-width:90px;
+    height:260px;
+    transition:flex .45s ease;
   }
-  .gallery-item img{width:100%;height:150px;object-fit:cover;transition:transform .3s ease;}
-  .gallery-item:hover img{transform:scale(1.06);}
+  @media(min-width:640px){.gallery-item{height:320px;}}
+  @media(hover:hover){
+    .gallery-item:hover{flex:4 1 0;}
+    .gallery-item:hover img{transform:scale(1.04);}
+  }
+  .gallery-item img{
+    width:100%;height:100%;object-fit:cover;
+    transition:transform .45s ease;
+  }
   .gallery-caption{
     position:absolute;bottom:0;left:0;right:0;
-    background:linear-gradient(180deg,transparent,rgba(8,34,56,0.85));
-    color:#fff;font-size:0.78rem;padding:20px 10px 8px;
+    background:linear-gradient(180deg,transparent,rgba(8,34,56,0.9));
+    color:#fff;padding:16px 12px 10px;
+    display:flex;flex-direction:column;gap:4px;
+  }
+  .gallery-caption .cap-title{
+    font-size:0.8rem;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+    transition:font-size .3s ease;
+  }
+  .gallery-caption .cap-desc{
+    font-size:0.78rem;color:rgba(255,255,255,0.85);
+    max-height:0;opacity:0;overflow:hidden;
+    transition:max-height .35s ease, opacity .3s ease;
+  }
+  @media(hover:hover){
+    .gallery-item:hover .cap-title{font-size:1.05rem;}
+    .gallery-item:hover .cap-desc{max-height:80px;opacity:1;margin-top:2px;}
   }
 
   /* Lightbox */
@@ -236,7 +265,9 @@
     display:flex;flex-wrap:wrap;justify-content:center;gap:28px;margin-top:36px;
     color:rgba(255,255,255,0.9);font-size:0.95rem;
   }
-  .contact-info div{display:flex;align-items:center;gap:8px;}
+  .contact-info div, .contact-info a{display:flex;align-items:center;gap:8px;color:inherit;}
+  .contact-info a{text-decoration:none;transition:color .2s;}
+  .contact-info a:hover{color:var(--azul-claro);text-decoration:underline;}
   .social-links{display:flex;justify-content:center;gap:16px;margin-top:24px;}
   .social-links a{
     width:42px;height:42px;border-radius:50%;background:rgba(255,255,255,0.12);
@@ -280,7 +311,7 @@
 <!-- HERO -->
 <section class="hero">
   <div class="container hero-content">
-    <span class="badge">📍 Campo Grande/MS · Seg a Sex, 8h às 17h</span>
+    <a class="badge js-maps" href="#" target="_blank" rel="noopener">📍 Campo Grande/MS · Seg a Sex, 8h às 17h</a>
     <h1>Gelo de qualidade, <span class="accent">para seu negócio</span></h1>
     <p class="subhead">Cubos, gelo triturado, barras  e gelo seco para bares, restaurantes, eventos e sua casa, peça agora.</p>
     <div class="hero-buttons">
@@ -442,29 +473,29 @@
     <h2>Nosso Trabalho</h2>
     <p class="section-sub">Tradição que faz a diferença, há 20 anos atendendo na região.</p>
     <div class="gallery-grid" id="gallery">
-      <div class="gallery-item" data-caption="Barra de gelo em open bar">
-        <img loading="lazy" src="https://placehold.co/400x300/0b3d5c/ffffff?text=Open+Bar" alt="Barra de gelo em open bar de festa">
-        <div class="gallery-caption">Open bar personalizado</div>
+      <div class="gallery-item" data-caption="Barra de gelo em open bar" data-desc="Montagem completa para open bar de festas particulares.">
+        <img loading="lazy" src="https://placehold.co/500x400/0b3d5c/ffffff?text=Open+Bar" alt="Barra de gelo em open bar de festa">
+        <div class="gallery-caption"><span class="cap-title">Open bar personalizado</span><span class="cap-desc">Montagem completa para open bar de festas particulares.</span></div>
       </div>
-      <div class="gallery-item" data-caption="Gelo saborizado para seus drinks">
-        <img loading="lazy" src="https://placehold.co/400x300/082238/ffffff?text=Saborizado" alt="Gelo saborizado para seus drinks.">
-        <div class="gallery-caption">Gelo saborizado</div>
+      <div class="gallery-item" data-caption="Gelo saborizado para seus drinks" data-desc="Sabores variados para deixar seu drink ainda mais especial.">
+        <img loading="lazy" src="https://placehold.co/500x400/082238/ffffff?text=Saborizado" alt="Gelo saborizado para seus drinks.">
+        <div class="gallery-caption"><span class="cap-title">Gelo saborizado</span><span class="cap-desc">Sabores variados para deixar seu drink ainda mais especial.</span></div>
       </div>
-      <div class="gallery-item" data-caption="Entrega de gelo em cubo para restaurante parceiro">
-        <img loading="lazy" src="https://placehold.co/400x300/bfe4f0/0b3d5c?text=Restaurante" alt="Entrega de gelo em cubo para restaurante">
-        <div class="gallery-caption">Entrega para restaurante</div>
+      <div class="gallery-item" data-caption="Entrega de gelo em cubo para restaurante parceiro" data-desc="Fornecimento regular para restaurantes de Campo Grande.">
+        <img loading="lazy" src="https://placehold.co/500x400/bfe4f0/0b3d5c?text=Restaurante" alt="Entrega de gelo em cubo para restaurante">
+        <div class="gallery-caption"><span class="cap-title">Entrega para restaurante</span><span class="cap-desc">Fornecimento regular para restaurantes de Campo Grande.</span></div>
       </div>
-      <div class="gallery-item" data-caption="Efeito de fumaça com gelo seco em festa">
-        <img loading="lazy" src="https://placehold.co/400x300/3aa7d1/ffffff?text=Gelo+Seco" alt="Efeito de fumaça com gelo seco em festa">
-        <div class="gallery-caption">Efeito gelo seco</div>
+      <div class="gallery-item" data-caption="Efeito de fumaça com gelo seco em festa" data-desc="Efeito visual marcante para shows e festas especiais.">
+        <img loading="lazy" src="https://placehold.co/500x400/3aa7d1/ffffff?text=Gelo+Seco" alt="Efeito de fumaça com gelo seco em festa">
+        <div class="gallery-caption"><span class="cap-title">Efeito gelo seco</span><span class="cap-desc">Efeito visual marcante para shows e festas especiais.</span></div>
       </div>
-      <div class="gallery-item" data-caption="Caminhão de entrega Gelos Polar">
-        <img loading="lazy" src="https://placehold.co/400x300/0b3d5c/ffffff?text=Entrega" alt="Veículo de entrega da Gelos Polar em Campo Grande">
-        <div class="gallery-caption">Nossa frota de entrega</div>
+      <div class="gallery-item" data-caption="Caminhão de entrega Gelos Polar" data-desc="Nossa frota pronta para atender toda a região.">
+        <img loading="lazy" src="https://placehold.co/500x400/0b3d5c/ffffff?text=Entrega" alt="Veículo de entrega da Gelos Polar em Campo Grande">
+        <div class="gallery-caption"><span class="cap-title">Nossa frota de entrega</span><span class="cap-desc">Nossa frota pronta para atender toda a região.</span></div>
       </div>
-      <div class="gallery-item" data-caption="Gelo triturado para peixaria parceira">
-        <img loading="lazy" src="https://placehold.co/400x300/082238/ffffff?text=Peixaria" alt="Gelo triturado entregue em peixaria">
-        <div class="gallery-caption">Parceria com peixaria</div>
+      <div class="gallery-item" data-caption="Gelo triturado para peixaria parceira" data-desc="Ideal para conservação de pescado em peixarias parceiras.">
+        <img loading="lazy" src="https://placehold.co/500x400/082238/ffffff?text=Peixaria" alt="Gelo triturado entregue em peixaria">
+        <div class="gallery-caption"><span class="cap-title">Parceria com peixaria</span><span class="cap-desc">Ideal para conservação de pescado em peixarias parceiras.</span></div>
       </div>
     </div>
   </div>
@@ -479,7 +510,7 @@
       <a class="btn btn-primary js-whats" href="#" data-msg="Olá! Gostaria de um orçamento de gelo. [Produto/quantidade/data/endereço]" target="_blank" rel="noopener">💬 Falar no WhatsApp</a>
 
       <div class="contact-info">
-        <div>📍 Campo Grande/MS - Brasil</div>
+        <a class="js-maps" href="#" target="_blank" rel="noopener">📍 Campo Grande/MS - Brasil</a>
         <div>🕒 Seg a Sex, 8h às 17h</div>
         <div>📞 (67) 99999-9999</div>
       </div>
@@ -505,6 +536,7 @@
 <script>
 (function(){
   var WHATS_NUMBER = "5567999999999";
+  var MAPS_QUERY = "Gelos Polar, Campo Grande, MS, Brasil"; // <-- troque pelo endereço exato da loja
 
   document.getElementById('year').textContent = new Date().getFullYear();
 
@@ -531,6 +563,13 @@
   function buildLink(msg){
     return "https://wa.me/" + WHATS_NUMBER + "?text=" + encodeURIComponent(msg);
   }
+
+  function buildMapsLink(query){
+    return "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(query);
+  }
+  document.querySelectorAll('.js-maps').forEach(function(el){
+    el.setAttribute('href', buildMapsLink(MAPS_QUERY));
+  });
 
   document.querySelectorAll('.js-whats').forEach(function(el){
     var msg = el.getAttribute('data-msg') || "Olá! Gostaria de um orçamento de gelo. [Produto/quantidade/data/endereço]";
