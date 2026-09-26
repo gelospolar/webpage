@@ -76,6 +76,8 @@
   .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 20px;max-width:1100px;margin:0 auto;position:relative;gap:16px;}
   .logo{display:flex;align-items:center;gap:8px;font-weight:800;font-size:1.2rem;color:var(--azul-escuro);}
   .logo span{color:var(--azul-medio);}
+  .logo img{height:40px;width:auto;max-width:160px;object-fit:contain;display:block;}
+  @media(min-width:720px){.logo img{height:48px;}}
   .nav-cta{display:none;}
   @media(min-width:900px){.nav-cta{display:inline-flex;}}
 
@@ -301,7 +303,7 @@
 
 <header>
   <div class="nav">
-    <div class="logo"> Gelos <span>Polar</span></div>
+    <div class="logo"><img src="assets/logo.png" alt="Gelos Polar"></div>
     <button class="nav-toggle" id="nav-toggle" aria-label="Abrir menu" aria-expanded="false">☰</button>
     <ul class="nav-menu" id="nav-menu"></ul>
     <a class="btn btn-primary nav-cta" id="nav-whats" href="#" target="_blank" rel="noopener">Falar no WhatsApp</a>
@@ -332,42 +334,42 @@
     <div class="products-grid">
 
       <div class="product-card frost">
-        <img loading="lazy" src="https://placehold.co/400x260/bfe4f0/0b3d5c?text=Gelo+em+Cubo" alt="Sacos de gelo em cubo empilhados">
+        <img loading="lazy" src="assets/gelo-cubo-mao.jpeg" alt="Sacos de gelo em cubo empilhados">
         <h3>Gelo em Cubo</h3>
         <p>Ideal para bares, restaurantes, distribuidoras e uso doméstico. Embalagens de vários tamanhos.</p>
         <a class="btn btn-primary js-whats" href="#" data-msg="Olá! Gostaria de um orçamento de Gelo em Cubo. [quantidade/data/endereço]" target="_blank" rel="noopener">Pedir orçamento</a>
       </div>
 
       <div class="product-card frost">
-        <img loading="lazy" src="https://placehold.co/400x260/bfe4f0/0b3d5c?text=Gelo+triturado" alt="Gelo triturado em recipiente">
+        <img loading="lazy" src="assets/gelo-triturado.jpeg" alt="Gelo triturado em recipiente">
         <h3>Gelo triturado</h3>
         <p>Para uso externo, perfeito para conservação de bebidas em eventos.</p>
         <a class="btn btn-primary js-whats" href="#" data-msg="Olá! Gostaria de um orçamento de Gelo triturado. [quantidade/data/endereço]" target="_blank" rel="noopener">Pedir orçamento</a>
       </div>
 
       <div class="product-card frost">
-        <img loading="lazy" src="https://placehold.co/400x260/bfe4f0/0b3d5c?text=Gelo+escama" alt="Gelo triturado em recipiente">
+        <img loading="lazy" src="assets/gelo-escama.jpeg" alt="Gelo triturado em recipiente">
         <h3>Gelo escama</h3>
         <p>Para o rápido condicionamento de mantimentos, de fácil manuseio. Perfeito para peixarias e chopperias.</p>
         <a class="btn btn-primary js-whats" href="#" data-msg="Olá! Gostaria de um orçamento de Gelo triturado. [quantidade/data/endereço]" target="_blank" rel="noopener">Pedir orçamento</a>
       </div>
 
       <div class="product-card frost">
-        <img loading="lazy" src="https://placehold.co/400x260/bfe4f0/0b3d5c?text=Barras+de+Gelo" alt="Barras de gelo transparente">
+        <img loading="lazy" src="assets/gelo-barra.jpg" alt="Barras de gelo transparente">
         <h3>Barras de Gelo</h3>
         <p>Barras inteiras, perfeita para viagens e conservação de mantimentos.</p>
         <a class="btn btn-primary js-whats" href="#" data-msg="Olá! Gostaria de um orçamento de Barras de Gelo. [quantidade/data/endereço]" target="_blank" rel="noopener">Pedir orçamento</a>
       </div>
 
       <div class="product-card frost">
-        <img loading="lazy" src="https://placehold.co/400x260/bfe4f0/0b3d5c?text=Gelo+Seco" alt="Gelo seco com efeito de fumaça">
+        <img loading="lazy" src="assets/gelo-seco.jpg" alt="Gelo seco com efeito de fumaça">
         <h3>Gelo Seco</h3>
         <p>Efeito de fumaça para festas, shows e eventos especiais. Manuseio e entrega com segurança.</p>
         <a class="btn btn-primary js-whats" href="#" data-msg="Olá! Gostaria de um orçamento de Gelo Seco. [quantidade/data/endereço]" target="_blank" rel="noopener">Pedir orçamento</a>
       </div>
 
       <div class="product-card frost">
-        <img loading="lazy" src="https://placehold.co/400x260/bfe4f0/0b3d5c?text=Gelo+Saborizado" alt="Gelo saborizado">
+        <img loading="lazy" src="assets/gelo-saborizado.png" alt="Gelo saborizado">
         <h3>Gelo Saborizado</h3>
         <p>Gelo saborizado para bebidas.</p>
         <a class="btn btn-primary js-whats" href="#" data-msg="Olá! Gostaria de um orçamento de Gelo Esculpido. [quantidade/data/endereço]" target="_blank" rel="noopener">Pedir orçamento</a>
@@ -468,33 +470,33 @@
 </section>
 
 <!-- GALLERY -->
-<section class="page-section section-alt" id="portfolio" data-nav-label="Portfólio">
+<section class="page-section section-alt" id="portfolio" data-nav-label="Nosso Trabalho">
   <div class="container">
     <h2>Nosso Trabalho</h2>
-    <p class="section-sub">Tradição que faz a diferença, há 20 anos atendendo na região.</p>
+    <p class="section-sub">Qualidade que faz a diferença, 25 anos de tradição.</p>
     <div class="gallery-grid" id="gallery">
       <div class="gallery-item" data-caption="Barra de gelo em open bar" data-desc="Montagem completa para open bar de festas particulares.">
-        <img loading="lazy" src="https://placehold.co/500x400/0b3d5c/ffffff?text=Open+Bar" alt="Barra de gelo em open bar de festa">
+        <img loading="lazy" src="assets/banner2.jpg" alt="Barra de gelo em open bar de festa">
         <div class="gallery-caption"><span class="cap-title">Open bar personalizado</span><span class="cap-desc">Montagem completa para open bar de festas particulares.</span></div>
       </div>
       <div class="gallery-item" data-caption="Gelo saborizado para seus drinks" data-desc="Sabores variados para deixar seu drink ainda mais especial.">
-        <img loading="lazy" src="https://placehold.co/500x400/082238/ffffff?text=Saborizado" alt="Gelo saborizado para seus drinks.">
+        <img loading="lazy" src="assets/gelo-saborizado.png" alt="Gelo saborizado para seus drinks.">
         <div class="gallery-caption"><span class="cap-title">Gelo saborizado</span><span class="cap-desc">Sabores variados para deixar seu drink ainda mais especial.</span></div>
       </div>
       <div class="gallery-item" data-caption="Entrega de gelo em cubo para restaurante parceiro" data-desc="Fornecimento regular para restaurantes de Campo Grande.">
-        <img loading="lazy" src="https://placehold.co/500x400/bfe4f0/0b3d5c?text=Restaurante" alt="Entrega de gelo em cubo para restaurante">
+        <img loading="lazy" src="assets/gelo-cubo-pilha.png" alt="Entrega de gelo em cubo para restaurante">
         <div class="gallery-caption"><span class="cap-title">Entrega para restaurante</span><span class="cap-desc">Fornecimento regular para restaurantes de Campo Grande.</span></div>
       </div>
       <div class="gallery-item" data-caption="Efeito de fumaça com gelo seco em festa" data-desc="Efeito visual marcante para shows e festas especiais.">
-        <img loading="lazy" src="https://placehold.co/500x400/3aa7d1/ffffff?text=Gelo+Seco" alt="Efeito de fumaça com gelo seco em festa">
+        <img loading="lazy" src="assets/gelo-seco.jpg" alt="Efeito de fumaça com gelo seco em festa">
         <div class="gallery-caption"><span class="cap-title">Efeito gelo seco</span><span class="cap-desc">Efeito visual marcante para shows e festas especiais.</span></div>
       </div>
       <div class="gallery-item" data-caption="Caminhão de entrega Gelos Polar" data-desc="Nossa frota pronta para atender toda a região.">
-        <img loading="lazy" src="https://placehold.co/500x400/0b3d5c/ffffff?text=Entrega" alt="Veículo de entrega da Gelos Polar em Campo Grande">
+        <img loading="lazy" src="assets/568637321504287.webp" alt="Veículo de entrega da Gelos Polar em Campo Grande">
         <div class="gallery-caption"><span class="cap-title">Nossa frota de entrega</span><span class="cap-desc">Nossa frota pronta para atender toda a região.</span></div>
       </div>
       <div class="gallery-item" data-caption="Gelo triturado para peixaria parceira" data-desc="Ideal para conservação de pescado em peixarias parceiras.">
-        <img loading="lazy" src="https://placehold.co/500x400/082238/ffffff?text=Peixaria" alt="Gelo triturado entregue em peixaria">
+        <img loading="lazy" src="assets/peixaria.jpg" alt="Gelo triturado entregue em peixaria">
         <div class="gallery-caption"><span class="cap-title">Parceria com peixaria</span><span class="cap-desc">Ideal para conservação de pescado em peixarias parceiras.</span></div>
       </div>
     </div>
@@ -512,7 +514,7 @@
       <div class="contact-info">
         <a class="js-maps" href="#" target="_blank" rel="noopener">📍 Campo Grande/MS - Brasil</a>
         <div>🕒 Seg a Sex, 8h às 17h</div>
-        <div>📞 (67) 99999-9999</div>
+        <div>📞 (67) 3325-3054</div>
       </div>
 
       <div class="social-links">
@@ -535,7 +537,7 @@
 
 <script>
 (function(){
-  var WHATS_NUMBER = "5567999999999";
+  var WHATS_NUMBER = "5567984113028";
   var MAPS_QUERY = "Gelos Polar, Campo Grande, MS, Brasil"; // <-- troque pelo endereço exato da loja
 
   document.getElementById('year').textContent = new Date().getFullYear();
